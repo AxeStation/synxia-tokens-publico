@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Synxia — símbolo matemático limpio.
+  Concepto: dos burbujas de chat entrelazadas formando una S (concepto A).
+  Simetría rotacional 180° EXACTA — la Forma B es
+  matemáticamente la Forma A rotada 180° alrededor del centro (50, 50).
+  Los endpoints de la Forma B se derivan por la fórmula (x', y') = (100-x, 100-y).
+
+  Forma A endpoints: (30, 50) → (62, 30)
+  Forma B endpoints: (70, 50) → (38, 70)  ← Forma A rotada 180° por (50,50)
+
+  Grosor uniforme: stroke-width fijo con stroke-linecap="round". El SVG no
+  usa fills; el trazo ES la geometría.
+
+  ViewBox 100×100 con espacio de seguridad ~5%. El símbolo vive dentro de
+  un cuadrado 84×84 centrado — cabe en avatar circular sin recorte.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Synxia">
+  <title>Synxia</title>
+  <g stroke="#0D9488" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Forma A: mitad superior de la S. Arco de ~270° con endpoints
+         (30, 50) exterior izquierdo y (62, 30) interior arriba-derecha. -->
+    <path d="M 30 50 A 22 22 0 1 1 62 30"/>
+    <!-- Forma B: rotación 180° de A por (50, 50). Endpoints matemáticamente
+         derivados: (70, 50) y (38, 70). sweep-flag=1 preservado. -->
+    <path d="M 70 50 A 22 22 0 1 1 38 70"/>
+  </g>
+</svg>

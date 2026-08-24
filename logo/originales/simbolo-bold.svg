@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Synxia símbolo — variante BOLD para tamaños chicos.
+  Uso: favicon 16/32, chip PDF < 20px, avatar minimal.
+  stroke-width sube 12 → 15 para mantener presencia visual cuando la
+  resolución del render es escasa. Endpoints matemáticos sin cambios.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Synxia">
+  <title>Synxia</title>
+  <g stroke="#0D9488" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 30 50 A 22 22 0 1 1 62 30"/>
+    <path d="M 70 50 A 22 22 0 1 1 38 70"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "name": "synxia-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fuente única de la marca Synxia: color, tipografía y logo. dist/ se commitea y los consumidores lo vendorean.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  }
+}
