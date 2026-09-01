@@ -1,12 +1,19 @@
 /* AUTO-GENERADO por synxia-tokens 0.1.0 — NO editar a mano */
 :root {
-  --color-accion: #0d9488;
-  --color-accion-700: #0f766e;
-  --color-accion-900: #134e4a;
-  --color-accion-500: #14b8a6;
-  --color-accion-50: #f0fdfa;
-  --color-accion-100: #ccfbf1;
-  --color-sobre-accion: #FFFFFF;
+  --color-accion: #FF7D00;
+  --color-accion-700: #DB6B00;
+  --color-accion-900: #7A3B00;
+  --color-accion-500: #FF9630;
+  --color-accion-50: #FFF9F2;
+  --color-accion-100: #FFF4E8;
+  --color-sobre-accion: #0E1524;
+  /* ESTRUCTURA (navy) — tokens NUEVOS de este PR. Nacen porque la barra
+     superior colgaba de --color-accion y con el naranja se pintaba entera de
+     marca; la decisión (Julu, 1-sep) es que quede en navy-900. El catálogo no
+     tenía ningún navy consumible desde CSS a mano (ink vive como hex en el
+     preset y los .module.css no pueden usar clases). */
+  --color-estructura-900: #0E1524;
+  --color-estructura-50: #F4F6F9;
   --color-fondo: #FAFAF8;
   --color-fondo-elevado: #FFFFFF;
   --color-tinta: #0F1419;
@@ -16,28 +23,179 @@
   --color-borde: #E8EAE5;
   --color-borde-activo: #D4D7CF;
   --color-peligro: #dc2626;
-  --color-exito: #059669;
-  --color-aviso: #d97706;
+  --color-exito: #16a34a;
+  --color-aviso: #CA9A04;
   --color-documento-acento: #1B3A6B;
   --color-documento-acento-2: #2B7EC1;
   --color-correo-fondo-exterior: #F3F1EC;
-  --color-correo-aviso: #b45309;
-  --color-accion-400: #2dd4bf;
-  --color-accion-200: #99f6e4;
-  --color-accion-300: #5eead4;
-  --color-accion-800: #115e59;
+  --color-correo-aviso: #8A6100;
+  --color-accion-400: #FFB05C;
+  --color-accion-200: #FFE4C7;
+  --color-accion-300: #FFCB94;
+  --color-accion-800: #A85000;
   --color-senal-urgente: #dc2626;
   --color-senal-urgente-viva: #ef4444;
   --color-senal-urgente-fuerte: #b91c1c;
   --color-senal-urgente-suave: #fef2f2;
-  --color-senal-atencion: #d97706;
-  --color-senal-atencion-viva: #f59e0b;
-  --color-senal-atencion-fuerte: #b45309;
-  --color-senal-atencion-suave: #fffbeb;
+  --color-senal-atencion: #CA9A04;
+  --color-senal-atencion-viva: #EAB305;
+  --color-senal-atencion-fuerte: #8A6100;
+  --color-senal-atencion-suave: #FDF3D0;
   --color-senal-bien: #16a34a;
   --color-senal-bien-viva: #22c55e;
   --color-senal-bien-fuerte: #15803d;
   --color-senal-bien-suave: #f0fdf4;
+  /* ACCIÓN PELIGROSA (regla 1, Julu 24-ago-2026): eliminar/cancelar/revertir/
+     cerrar sesión. HOY comparte el rojo de senal-urgente A PROPÓSITO (mismos
+     hex) — la decisión es que peligro y urgencia se vean igual. La ranura
+     existe para que Karla pueda separarlos después SIN tocar componentes.
+     Vendoreado a mano (la fuente synxia-tokens lo recibe en la unificación
+     post-estreno; el guardián lo lista como deuda, no como divergencia). */
+  --color-accion-peligrosa: #dc2626;
+  --color-accion-peligrosa-fuerte: #b91c1c;
+  /* Rampa completa de señales (PR-0, 21-ago-2026). Los 4 niveles semánticos
+     de arriba (suave/DEFAULT/viva/fuerte) ya eran Tailwind {50,600,500,700};
+     acá se agregan los escalones que el barrido de señales encontró EN USO a
+     mano (-100/-200/-300/-400/-800/-900/-950) y el cajón no tenía — sobre todo
+     el borde -200, que es el contorno de casi toda caja de error. Valores
+     exactos de tailwindcss/colors red/amber/green: CERO pixeles, y no consumen
+     decisión de marca (el rojo de "urgente" es rojo con cualquier paleta). */
+  --color-senal-urgente-100: #fee2e2;
+  --color-senal-urgente-200: #fecaca;
+  --color-senal-urgente-300: #fca5a5;
+  --color-senal-urgente-400: #f87171;
+  --color-senal-urgente-800: #991b1b;
+  --color-senal-urgente-900: #7f1d1d;
+  --color-senal-urgente-950: #450a0a;
+  --color-senal-atencion-100: #fef3c7;
+  --color-senal-atencion-200: #fde68a;
+  --color-senal-atencion-300: #fcd34d;
+  --color-senal-atencion-400: #fbbf24;
+  --color-senal-atencion-800: #92400e;
+  --color-senal-atencion-900: #78350f;
+  --color-senal-atencion-950: #451a03;
+  --color-senal-bien-100: #dcfce7;
+  --color-senal-bien-200: #bbf7d0;
+  --color-senal-bien-300: #86efac;
+  --color-senal-bien-400: #4ade80;
+  --color-senal-bien-800: #166534;
+  --color-senal-bien-900: #14532d;
+  --color-senal-bien-950: #052e16;
+  /* Canales RGB de cada señal (PR-0, 21-ago-2026). El preset emite
+     rgb(var(--x-rgb) / <alpha-value>) — como Tailwind pinta sus propios colores
+     — para dar soporte de alfa SIN color-mix (que un navegador anterior a ~2023
+     descarta, dejando el elemento invisible: la misma falla que se está
+     curando). rgb(r g b / a) funciona desde 2017-2019.
+     ESTOS SON LA MISMA VERDAD QUE LOS HEX DE ARRIBA, escrita en canales. Si
+     ajustás un tono, tocá LAS DOS o se separan en silencio. La red que lo
+     obliga: scripts/check-token-rgb-pares.mjs (generados desde los hex, no a
+     mano). */
+  --color-senal-urgente-rgb: 220 38 38;
+  --color-senal-urgente-viva-rgb: 239 68 68;
+  --color-senal-urgente-fuerte-rgb: 185 28 28;
+  --color-senal-urgente-suave-rgb: 254 242 242;
+  --color-senal-atencion-rgb: 202 154 4;
+  --color-senal-atencion-viva-rgb: 234 179 5;
+  --color-senal-atencion-fuerte-rgb: 138 97 0;
+  --color-senal-atencion-suave-rgb: 253 243 208;
+  --color-senal-bien-rgb: 22 163 74;
+  --color-senal-bien-viva-rgb: 34 197 94;
+  --color-senal-bien-fuerte-rgb: 21 128 61;
+  --color-senal-bien-suave-rgb: 240 253 244;
+  /* TENDENCIA (regla 2, Julu 24-ago-2026): el color dice si la dirección
+     CONVIENE, nunca la dirección misma (para eso está la flecha). HOY:
+     conviene = verde de senal-bien, no-conviene = ÁMBAR de senal-atencion —
+     nunca rojo: el rojo se queda para "está caído" (precedente fmtDelta).
+     Ranura para Karla; vendoreada a mano como las señales. */
+  --color-tendencia-conviene: #16a34a;
+  --color-tendencia-conviene-fuerte: #15803d;
+  --color-tendencia-conviene-suave: #f0fdf4;
+  --color-tendencia-no-conviene: #CA9A04;
+  --color-tendencia-no-conviene-fuerte: #8A6100;
+  --color-tendencia-no-conviene-suave: #FDF3D0;
+  --color-tendencia-conviene-rgb: 22 163 74;
+  --color-tendencia-conviene-fuerte-rgb: 21 128 61;
+  --color-tendencia-conviene-suave-rgb: 240 253 244;
+  --color-tendencia-no-conviene-rgb: 202 154 4;
+  --color-tendencia-no-conviene-fuerte-rgb: 138 97 0;
+  --color-tendencia-no-conviene-suave-rgb: 253 243 208;
+  --color-senal-urgente-100-rgb: 254 226 226;
+  --color-senal-urgente-200-rgb: 254 202 202;
+  --color-senal-urgente-300-rgb: 252 165 165;
+  --color-senal-urgente-400-rgb: 248 113 113;
+  --color-senal-urgente-800-rgb: 153 27 27;
+  --color-senal-urgente-900-rgb: 127 29 29;
+  --color-senal-urgente-950-rgb: 69 10 10;
+  --color-senal-atencion-100-rgb: 254 243 199;
+  --color-senal-atencion-200-rgb: 253 230 138;
+  --color-senal-atencion-300-rgb: 252 211 77;
+  --color-senal-atencion-400-rgb: 251 191 36;
+  --color-senal-atencion-800-rgb: 146 64 14;
+  --color-senal-atencion-900-rgb: 120 53 15;
+  --color-senal-atencion-950-rgb: 69 26 3;
+  --color-senal-bien-100-rgb: 220 252 231;
+  --color-senal-bien-200-rgb: 187 247 208;
+  --color-senal-bien-300-rgb: 134 239 172;
+  --color-senal-bien-400-rgb: 74 222 128;
+  --color-senal-bien-800-rgb: 22 101 52;
+  --color-senal-bien-900-rgb: 20 83 45;
+  --color-senal-bien-950-rgb: 5 46 22;
+  /* ACENTO 2 — el azul secundario (CTA "Continuar" del wizard, etc.), 43 sitios
+     (PR acento2, 23-ago-2026). Hoy son EXACTAMENTE los valores blue-N de
+     Tailwind; el token los captura tal cual (ΔE 0, cero-pixel). Objetivo: NO se
+     decide hoy si el azul se colapsa a brand — con el token, el día de Karla es
+     una línea. Los -rgb son los canales GENERADOS del hex (no a mano); el par
+     hex/rgb lo vigila check-token-rgb-pares. Alfa vía el helper senal() del
+     preset (mismo mecanismo que las señales). */
+  --color-acento2-50: #eff6ff;
+  --color-acento2-100: #dbeafe;
+  --color-acento2-200: #bfdbfe;
+  --color-acento2-500: #3b82f6;
+  --color-acento2-600: #2563eb;
+  --color-acento2-700: #1d4ed8;
+  --color-acento2-800: #1e40af;
+  --color-acento2-900: #1e3a8a;
+  --color-acento2-50-rgb: 239 246 255;
+  --color-acento2-100-rgb: 219 234 254;
+  --color-acento2-200-rgb: 191 219 254;
+  --color-acento2-500-rgb: 59 130 246;
+  --color-acento2-600-rgb: 37 99 235;
+  --color-acento2-700-rgb: 29 78 216;
+  --color-acento2-800-rgb: 30 64 175;
+  --color-acento2-900-rgb: 30 58 138;
+  /* SOMBRAS (24-ago-2026): 4 elevaciones + anillo de foco. Valores anclados
+     a lo más usado hoy; elevacion-3 es LA SOMBRA FIRMADA del mock del shell
+     (canónica, no víctima de la poda). El foco usa el acento suave del
+     catálogo, como los anillos teal-ghost que ya existían. */
+  --sombra-elevacion-1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sombra-elevacion-2: 0 8px 24px rgba(15, 20, 25, 0.10), 0 2px 6px rgba(15, 20, 25, 0.04);
+  --sombra-elevacion-3: 0 18px 44px rgba(15, 20, 25, 0.12), 0 2px 6px rgba(15, 20, 25, 0.04);
+  --sombra-foco: 0 0 0 3px var(--color-accion-50);
+  /* PERILLAS DE ESPACIADO Y RADIOS (24-ago-2026): la escala DE FACTO del
+     panel, declarada como perillas para el día de la dirección de Karla.
+     Decisión Julu: NO se poda la cola todavía (podar ahora = caminar todo
+     dos veces); solo se declara lo que ya coincide. La cola pendiente vive
+     en docs/poda-pendiente-espaciado-radios.md. */
+  --espacio-1: 2px;
+  --espacio-2: 4px;
+  --espacio-3: 6px;
+  --espacio-4: 8px;
+  --espacio-5: 10px;
+  --espacio-6: 12px;
+  --espacio-7: 16px;
+  --espacio-8: 20px;
+  --espacio-9: 24px;
+  --espacio-10: 32px;
+  --espacio-layout-1: 40px;
+  --espacio-layout-2: 48px;
+  --espacio-layout-3: 64px;
+  --radio-chico: 4px;
+  --radio-medio: 8px;
+  --radio-grande: 12px;
+  --radio-extra: 16px;
+  --radio-total: 9999px;
+
+
   --tipografia-titulos: 'Fraunces', Georgia, 'Times New Roman', serif;
   --tipografia-texto: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
   --tipografia-datos: 'SF Mono', 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
@@ -56,6 +214,17 @@
   --tipo-nota-tamano: 12px;
   --tipo-nota-peso: 400;
   --tipo-nota-interlineado: 1.4;
+  /* Escalones NUEVOS de la escala aprobada (24-ago-2026): 8 escalones, cada
+     uno con el valor que YA dominaba (enchufar no se ve). micro = datos
+     densos (10px); texto-denso = el cuerpo real del panel (13px, antes
+     escala pirata de 12.5/13.5). Vendoreado a mano; a la fuente en la
+     unificación. */
+  --tipo-micro-tamano: 10px;
+  --tipo-micro-peso: 600;
+  --tipo-micro-interlineado: 1;
+  --tipo-texto-denso-tamano: 13px;
+  --tipo-texto-denso-peso: 400;
+  --tipo-texto-denso-interlineado: 1.45;
   --tipo-etiqueta-tamano: 11px;
   --tipo-etiqueta-peso: 600;
   --tipo-etiqueta-interlineado: 1.2;

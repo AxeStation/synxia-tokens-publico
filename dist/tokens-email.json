@@ -1,9 +1,9 @@
 {
   "version": "0.1.0",
   "hash": "ca3b77f69799",
-  "color.accion": "#0d9488",
-  "color.accion-100": "#ccfbf1",
+  "color.accion": "#FF7D00",
+  "color.accion-100": "#FFF4E8",
   "color.fondo": "#FAFAF8",
   "color.correo-fondo-exterior": "#F3F1EC",
-  "color.correo-aviso": "#b45309"
+  "color.correo-aviso": "#8A6100"
 }
