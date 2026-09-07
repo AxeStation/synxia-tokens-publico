@@ -30,9 +30,14 @@ module.exports = {
         // el teal-500 real vive en la var --color-accion-500. Des-buguear el
         // 500 es decisión pendiente de Julu (24 usos vivos entre dashboard y
         // marketing dependen del bug).
-        brand: { 50: '#FFF9F2', 100: '#FFF4E8', 200: '#FFE4C7', 300: '#FFCB94', 400: '#FFB05C', 500: '#FF9630', 600: '#FF7D00', 700: '#DB6B00', 800: '#A85000', 900: '#7A3B00' },
-        ink: { 50: '#F4F6F9', 100: '#E5E9F0', 200: '#C8D0DC', 300: '#A3AFC2', 400: '#7484A0', 500: '#4D5F7D', 600: '#25344A', 700: '#1C2839', 800: '#141D2B', 900: '#0E1524' },
+        brand: { 50: '#FFF9F2', 100: '#FFF4E8', 200: '#FFE4C7', 300: '#FFCB94', 400: '#FFB05C', 500: '#FF7200', 600: '#FF7200', 700: '#DB6900', 800: '#A85000', 900: '#7A3B00' },
+        ink: { 50: '#F4F6F9', 100: '#E5E9F0', 200: '#C8D0DC', 300: '#A3AFC2', 400: '#7484A0', 500: '#4D5F7D', 600: '#25344A', 700: '#1C2839', 800: '#141D2B', 900: '#14110E' },
         accion: { DEFAULT: 'var(--color-accion)', 50: 'var(--color-accion-50)', 100: 'var(--color-accion-100)', 500: 'var(--color-accion-500)', 700: 'var(--color-accion-700)', 900: 'var(--color-accion-900)' },
+        // AÑADIDOS por synxia-tokens#10 (7-sep-2026): vivían sólo en el vendor
+        // del dashboard (126 y 24 usos) y la referencia no los definía, así que
+        // el guardián no los vigilaba.
+        'accion-texto': 'var(--color-accion-texto)',
+        gris: { '000': 'var(--color-gris-000)', '050': 'var(--color-gris-050)', 100: 'var(--color-gris-100)', 200: 'var(--color-gris-200)', 300: 'var(--color-gris-300)', 400: 'var(--color-gris-400)', 500: 'var(--color-gris-500)', 600: 'var(--color-gris-600)', 900: 'var(--color-gris-900)' },
         // El color del TEXTO sobre el fondo de acción. Existe como clase para
         // que ningún botón vuelva a escribir el blanco a mano: blanco sobre el
         // naranja da 2.57 y reprueba; este token da 7.11.
