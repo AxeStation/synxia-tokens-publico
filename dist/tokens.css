@@ -1,12 +1,12 @@
 /* AUTO-GENERADO por synxia-tokens 0.1.0 — NO editar a mano */
 :root {
-  --color-accion: #FF7D00;
-  --color-accion-700: #DB6B00;
+  --color-accion: #FF7200;
+  --color-accion-700: #DB6900;
   --color-accion-900: #7A3B00;
-  --color-accion-500: #FF9630;
+  --color-accion-500: #FF9C42;
   --color-accion-50: #FFF9F2;
   --color-accion-100: #FFF4E8;
-  --color-sobre-accion: #0E1524;
+  --color-sobre-accion: #14110E;
   /* ESTRUCTURA (navy) — tokens NUEVOS de este PR. Nacen porque la barra
      superior colgaba de --color-accion y con el naranja se pintaba entera de
      marca; la decisión (Julu, 1-sep) es que quede en navy-900. El catálogo no
@@ -14,12 +14,12 @@
      preset y los .module.css no pueden usar clases). */
   --color-estructura-900: #0E1524;
   --color-estructura-50: #F4F6F9;
-  --color-fondo: #FAFAF8;
+  --color-fondo: #F1EBE6;
   --color-fondo-elevado: #FFFFFF;
   --color-tinta: #0F1419;
   --color-tinta-900: #0F1419;
-  --color-tinta-600: #4A5560;
-  --color-tinta-400: #8B95A1;
+  --color-tinta-600: #3C3835;
+  --color-tinta-400: #524E4A;
   --color-borde: #E8EAE5;
   --color-borde-activo: #D4D7CF;
   --color-peligro: #dc2626;
@@ -229,4 +229,18 @@
   --tipo-etiqueta-peso: 600;
   --tipo-etiqueta-interlineado: 1.2;
   --tipo-etiqueta-espaciado: 0.08em;
+
+  /* AÑADIDOS por synxia-tokens#10 (7-sep-2026): la escala gris y el naranja
+     ESCRITO. Vivían sólo en el vendor del dashboard (126 y 24 usos) y ni la
+     fuente ni este espejo los definían, así que el guardián no los vigilaba. */
+  --color-accion-texto: #8F4000;
+  --color-gris-000: #FFFFFF;
+  --color-gris-050: #F6F7F9;
+  --color-gris-100: #EDEFF3;
+  --color-gris-200: #E1E5EB;
+  --color-gris-300: #C7CEDA;
+  --color-gris-400: #98A2B3;
+  --color-gris-500: #645F5C;
+  --color-gris-600: #5A6579;
+  --color-gris-900: #14110E;
 }
