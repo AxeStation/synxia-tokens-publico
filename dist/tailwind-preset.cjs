@@ -1,4 +1,4 @@
-// AUTO-GENERADO por synxia-tokens 0.1.0 — NO editar a mano
+// AUTO-GENERADO por synxia-tokens 0.3.0 — NO editar a mano
 //
 // EXCEPCIÓN vendoreada a mano (PR-0 señales, 21-ago-2026): las familias
 // senal-* pasan por el helper `senal()` para DARLES SOPORTE DE ALFA. Antes se
